@@ -11,6 +11,22 @@ finish-args:
   - --socket=wayland
   - --socket=pulseaudio
   - --device=dri
+  # connectivity_plus probes NetworkManager over the D-Bus *system* bus. Without
+  # a grant the sandbox has no /var/run/dbus/system_bus_socket, so the probe
+  # throws SocketException (errno=2) into the root zone — this was the single
+  # largest source of app fatals (`error.zone.uncaught`) on Linux. Scope the
+  # grant to NetworkManager only (Flathub-preferred over a blanket --socket=
+  # system-bus). main.dart's zone handler is the belt-and-suspenders fallback
+  # for sandboxes where the bus is still unreachable (e.g. Snap AppArmor).
+  - --system-talk-name=org.freedesktop.NetworkManager
+  # flutter_secure_storage reads/writes the device token via the Secret Service
+  # (org.freedesktop.secrets) on the *session* bus. Without this grant the read
+  # throws in the sandbox and the app fell back to an empty store and minted a
+  # NEW device token each time — registering a phantom device that tripped the
+  # device-limit cap against the user's own machine. The token_storage_service
+  # prefs-canonical fix makes churn impossible regardless; this grant restores
+  # the keyring so the secure mirror actually lands when a keyring is present.
+  - --talk-name=org.freedesktop.secrets
 
 cleanup:
   - /include
@@ -86,8 +102,8 @@ modules:
       - install -Dm644 share/icons/hicolor/512x512/apps/app.tuneline.Tuneline.png /app/share/icons/hicolor/512x512/apps/app.tuneline.Tuneline.png
     sources:
       - type: archive
-        url: https://tuneline.app/downloads/tuneline-1.0.85-linux-x86_64.tar.gz
-        sha256: 56d9a468736328d39382abf8cf01e3245134f6ac8da9a338a47b2636dd2dc869
+        url: https://tuneline.app/downloads/tuneline-1.0.86-linux-x86_64.tar.gz
+        sha256: 640d512ce0262c3cad154f06986ff9c4c65b4accb60533ef940e6b92c91821d0
         x-checker-data:
           type: anitya
           project-id: 389740
