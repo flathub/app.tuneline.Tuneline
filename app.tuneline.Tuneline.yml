@@ -1,6 +1,6 @@
 app-id: app.tuneline.Tuneline
 runtime: org.freedesktop.Platform
-runtime-version: "25.08"
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 command: tuneline
 
@@ -35,8 +35,8 @@ cleanup:
   - /share/doc
   - /share/man
   - /share/zsh
-  - "*.la"
-  - "*.a"
+  - '*.la'
+  - '*.a'
 
 modules:
   - name: libass
@@ -44,8 +44,8 @@ modules:
       - --disable-static
     sources:
       - type: archive
-        url: https://github.com/libass/libass/releases/download/0.17.4/libass-0.17.4.tar.xz
-        sha256: 78f1179b838d025e9c26e8fef33f8092f65611444ffa1bfc0cfac6a33511a05a
+        url: https://github.com/libass/libass/releases/download/0.17.5/libass-0.17.5.tar.xz
+        sha256: 2dca25c0e0c837ddf00b52011b3f82cac1e4ddd3ad018227806b0c2288864acc
         x-checker-data:
           type: anitya
           project-id: 1560
@@ -99,7 +99,8 @@ modules:
       - ln -s /app/tuneline/tuneline /app/bin/tuneline
       - install -Dm644 share/applications/app.tuneline.Tuneline.desktop /app/share/applications/app.tuneline.Tuneline.desktop
       - install -Dm644 share/metainfo/app.tuneline.Tuneline.metainfo.xml /app/share/metainfo/app.tuneline.Tuneline.metainfo.xml
-      - install -Dm644 share/icons/hicolor/512x512/apps/app.tuneline.Tuneline.png /app/share/icons/hicolor/512x512/apps/app.tuneline.Tuneline.png
+      - install -Dm644 share/icons/hicolor/512x512/apps/app.tuneline.Tuneline.png
+        /app/share/icons/hicolor/512x512/apps/app.tuneline.Tuneline.png
     sources:
       - type: archive
         url: https://tuneline.app/downloads/tuneline-1.0.88-linux-x86_64.tar.gz
