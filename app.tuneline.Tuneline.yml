@@ -103,7 +103,7 @@ modules:
     sources:
       - type: archive
         url: https://tuneline.app/downloads/tuneline-1.0.97-linux-x86_64.tar.gz
-        sha256: bfc3c6dd39b9ce1e0bfb1a81dc8f12f9278c7c88d101de4e54d30e644b6c58da
+        sha256: 389b289a1e2d2028004af1e45956e8599662158c5da9dec6f5559c1bea5d13e0
         x-checker-data:
           type: anitya
           project-id: 389740
