@@ -106,6 +106,6 @@ modules:
         sha256: 885e04b903c3c1795051bde41cc97021d758691154cd4eeaa16de31df21d1cb0
         x-checker-data:
           type: anitya
-          project-id: 389740
+          project-id: 393196
           stable-only: true
           url-template: https://tuneline.app/downloads/tuneline-$version-linux-x86_64.tar.gz
