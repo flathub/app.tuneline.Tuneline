@@ -102,8 +102,8 @@ modules:
       - install -Dm644 share/icons/hicolor/512x512/apps/app.tuneline.Tuneline.png /app/share/icons/hicolor/512x512/apps/app.tuneline.Tuneline.png
     sources:
       - type: archive
-        url: https://tuneline.app/downloads/tuneline-1.0.111-linux-x86_64.tar.gz
-        sha256: ab400482ee3cda0672b33384496e295bfe4128f0a43ecca5f0fb15fd9b5c50e4
+        url: https://tuneline.app/downloads/tuneline-1.0.112-linux-x86_64.tar.gz
+        sha256: a1087da3817f0a429351100eafb26b1e9c4163437f9d7f3c62948428593184c2
         x-checker-data:
           type: anitya
           project-id: 389740
